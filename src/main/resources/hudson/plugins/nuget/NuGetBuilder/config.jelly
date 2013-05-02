@@ -1,0 +1,22 @@
+<j:jelly xmlns:j="jelly:core" xmlns:f="/lib/form">
+    <f:entry title="NuGet Version">
+        <select class="setting-input" name="nuGetBuilder.nuGetName">
+            <option>(Default)</option>
+            <j:forEach var="inst" items="${descriptor.installations}">
+                <f:option selected="${inst.name==instance.nuGetName}">${inst.name}</f:option>
+            </j:forEach>
+        </select>
+    </f:entry>
+    <f:entry title="NuGet Command">
+        <select class="setting-input" name="nuGetBuilder.nuGetCommand">
+            <option>update</option>
+            <option>install</option>
+        </select>
+    </f:entry>
+    <f:entry title="NuGet Target File">
+        <f:textbox name="nuGetBuilder.nuGetFile" value="${instance.nuGetFile}" />
+    </f:entry>
+    <f:entry title="Command Line Arguments">
+        <f:textbox name="nuGetBuilder.cmdLineArgs" value="${instance.cmdLineArgs}" />
+    </f:entry>
+</j:jelly>
